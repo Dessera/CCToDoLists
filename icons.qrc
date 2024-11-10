@@ -1,0 +1,38 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>data/icons/add.png</file>
+        <file>data/icons/document.png</file>
+        <file>data/icons/window.png</file>
+        <file>data/icons/left_arrow.png</file>
+        <file>data/icons/right_arrow.png</file>
+    </qresource>
+    <qresource prefix="/icons/priority">
+        <file>data/icons/priority/high_priority.jpg</file>
+        <file>data/icons/priority/low_priority.png</file>
+        <file>data/icons/priority/middle_priority.png</file>
+    </qresource>
+    <qresource prefix="/icons/treewidgetitem">
+        <file>data/icons/treewidgetitemicon/Deadlines.png</file>
+        <file>data/icons/treewidgetitemicon/mainTask.png</file>
+        <file>data/icons/treewidgetitemicon/collapes.png</file>
+        <file>data/icons/treewidgetitemicon/expand.png</file>
+        <file>data/icons/treewidgetitemicon/checked.png</file>
+        <file>data/icons/treewidgetitemicon/partially-check.png</file>
+        <file>data/icons/treewidgetitemicon/starttime.png</file>
+    </qresource>
+    <qresource prefix="/icons/tabwidget">
+        <file>data/icons/tabwidgets/close.png</file>
+        <file>data/icons/tabwidgets/left.ico</file>
+        <file>data/icons/tabwidgets/right.ico</file>
+    </qresource>
+    <qresource prefix="/icons/tool_bar">
+        <file>data/icons/tool_bars/next_date.png</file>
+        <file>data/icons/tool_bars/previous.png</file>
+        <file>data/icons/tool_bars/save_as.png</file>
+        <file>data/icons/tool_bars/today.png</file>
+        <file>data/icons/tool_bars/insert_to_showndate.png</file>
+    </qresource>
+    <qresource prefix="/icons/windowIcon">
+        <file>data/icons/window_icon/todo.png</file>
+    </qresource>
+</RCC>

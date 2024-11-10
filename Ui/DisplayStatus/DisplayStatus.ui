@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DisplayStatus</class>
+ <widget class="QWidget" name="DisplayStatus">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>536</width>
+    <height>390</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>当前的任务状态</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QLabel" name="label_date">
+       <property name="minimumSize">
+        <size>
+         <width>186</width>
+         <height>46</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel {
+    /* 基础样式 */
+    font-family: &quot;Segoe UI&quot;, &quot;Helvetica&quot;, sans-serif;
+    font-size: 16px;
+    font-weight: bold; /* 设置字体加粗 */
+    color: #4a90e2; /* 主文本颜色 - 清新的蓝色 */
+    padding: 12px;
+    border-radius: 10px;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0.2 #e6f1fd, stop:1 #a9c9f5); /* 清新的蓝色渐变背景 */
+    border: 1px solid #4a90e2; /* 蓝色边框 */
+    text-align: center;
+    min-width: 160px;
+    min-height: 20px;
+}
+
+/* 鼠标悬停效果 */
+QLabel:hover {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0.2 #d2e8fb, stop:1 #82aef2); /* 悬停时的渐变 */
+    color: #1a7bb9; /* 悬停时文本颜色更深 */
+    border: 1px solid #1a7bb9; /* 悬停时边框颜色更深 */
+}
+
+/* 点击时的效果 */
+QLabel:pressed {
+    background-color: #c3dafb; /* 按下时背景更浅 */
+    color: #1a7bb9; /* 按下时文本颜色深 */
+    border-color: #1a7bb9; /* 按下时边框深色 */
+}
+
+/* 禁用状态 */
+QLabel:disabled {
+    color: #b0c4de; /* 禁用状态的文本颜色 */
+    background-color: #f0f4f8; /* 禁用状态的背景色 */
+    border: 1px solid #d1dbe6; /* 禁用状态的边框 */
+}
+
+/* 聚焦效果 */
+QLabel:focus {
+    border: 2px solid #0078d4; /* 聚焦时边框颜色变为深蓝色 */
+}
+
+/* 如果 QLabel 设置了图片背景 */
+QLabel[hasImage=&quot;true&quot;] {
+    background: url(:/images/blue_bg.png) no-repeat center center;
+    background-size: cover;
+    color: #ffffff; /* 背景图片时，文本颜色为白色 */
+    padding: 0;
+}
+
+/* 自定义标签图标 */
+QLabel[icon]:not([hasImage=&quot;true&quot;]) {
+    padding-left: 35px;
+    background: transparent;
+}
+
+QLabel[icon]:not([hasImage=&quot;true&quot;])::before {
+    content: url(:/images/icon_blue.png); /* 你可以自定义图标路径 */
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* 更细致的调整：避免字体过大或者过小影响对齐 */
+QLabel {
+    line-height: 1.4; /* 增加行高，使文本垂直居中 */
+    text-align: center;
+}
+
+/* 调整带图标时的显示效果 */
+QLabel[icon]:not([hasImage=&quot;true&quot;]) {
+    padding-left: 45px; /* 增加左侧的空隙，以确保图标不被文本遮挡 */
+}
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_index">
+       <property name="styleSheet">
+        <string notr="true">QLabel {
+    /* 基础样式 */
+    font-family: &quot;Segoe UI&quot;, &quot;Helvetica&quot;, sans-serif;
+    font-size: 16px;
+    font-weight: bold; /* 设置字体加粗 */
+    color: #4a90e2; /* 主文本颜色 - 清新的蓝色 */
+    padding: 12px;
+    border-radius: 10px;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0.2 #e6f1fd, stop:1 #a9c9f5); /* 清新的蓝色渐变背景 */
+    border: 1px solid #4a90e2; /* 蓝色边框 */
+    text-align: center;
+    min-width: 160px;
+    min-height: 20px;
+}
+
+/* 鼠标悬停效果 */
+QLabel:hover {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0.2 #d2e8fb, stop:1 #82aef2); /* 悬停时的渐变 */
+    color: #1a7bb9; /* 悬停时文本颜色更深 */
+    border: 1px solid #1a7bb9; /* 悬停时边框颜色更深 */
+}
+
+/* 点击时的效果 */
+QLabel:pressed {
+    background-color: #c3dafb; /* 按下时背景更浅 */
+    color: #1a7bb9; /* 按下时文本颜色深 */
+    border-color: #1a7bb9; /* 按下时边框深色 */
+}
+
+/* 禁用状态 */
+QLabel:disabled {
+    color: #b0c4de; /* 禁用状态的文本颜色 */
+    background-color: #f0f4f8; /* 禁用状态的背景色 */
+    border: 1px solid #d1dbe6; /* 禁用状态的边框 */
+}
+
+/* 聚焦效果 */
+QLabel:focus {
+    border: 2px solid #0078d4; /* 聚焦时边框颜色变为深蓝色 */
+}
+
+/* 如果 QLabel 设置了图片背景 */
+QLabel[hasImage=&quot;true&quot;] {
+    background: url(:/images/blue_bg.png) no-repeat center center;
+    background-size: cover;
+    color: #ffffff; /* 背景图片时，文本颜色为白色 */
+    padding: 0;
+}
+
+/* 自定义标签图标 */
+QLabel[icon]:not([hasImage=&quot;true&quot;]) {
+    padding-left: 35px;
+    background: transparent;
+}
+
+QLabel[icon]:not([hasImage=&quot;true&quot;])::before {
+    content: url(:/images/icon_blue.png); /* 你可以自定义图标路径 */
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* 更细致的调整：避免字体过大或者过小影响对齐 */
+QLabel {
+    line-height: 1.4; /* 增加行高，使文本垂直居中 */
+    text-align: center;
+}
+
+/* 调整带图标时的显示效果 */
+QLabel[icon]:not([hasImage=&quot;true&quot;]) {
+    padding-left: 45px; /* 增加左侧的空隙，以确保图标不被文本遮挡 */
+}
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QChartView" name="column_chartView"/>
+     </item>
+     <item>
+      <widget class="QChartView" name="pieChartView"/>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QChartView</class>
+   <extends>QGraphicsView</extends>
+   <header>QChartView</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

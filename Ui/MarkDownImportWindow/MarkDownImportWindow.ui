@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MarkDownImportWindow</class>
+ <widget class="QMainWindow" name="MarkDownImportWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>644</width>
+    <height>465</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="CCToDoTreeWidget" name="modifyingWidget">
+      <property name="styleSheet">
+       <string notr="true">/* 设置 QTreeWidget 整体背景颜色（反转颜色） */
+QTreeWidget {
+    background-color: rgb(228, 233, 242);  /* 设置柔和的浅蓝色背景 */
+    border: 1px solid rgb(200, 200, 200);  /* 设置边框 */
+    font: 12pt &quot;Microsoft YaHei&quot;;  /* 设置字体大小偏大，使用微软雅黑 */
+}
+
+/* 设置 QTreeWidget 项目（Item）的背景颜色（反转颜色） */
+QTreeWidget::item {
+    padding: 5px;  /* 设置项的内边距 */
+    color: rgb(50, 50, 50);  /* 设置项的文字颜色 */
+    height: 30px;  /* 设置行高为 30px */
+    background-color: rgb(104, 191, 249);  /* 设置每个项的背景色为蓝色 */
+}
+
+/* 设置选中项的样式（反转选中背景色） */
+QTreeWidget::item:!selected {
+    background-color: rgb(228, 233, 242);  /* 设置选中项的背景色为浅蓝色 */
+    color: black;  /* 设置选中项的文字颜色为白色 */
+}
+
+/* 设置复选框（indicator）的样式 */
+QTreeWidget::indicator {
+    width: 18px;
+    height: 18px;
+}
+
+/* 设置复选框未选中时的样式 */
+QTreeWidget::indicator:unchecked {
+    border: 2px solid rgb(150, 150, 150);  /* 边框颜色 */
+    background-color: rgb(255, 255, 255);  /* 背景色 */
+
+}
+
+/* 设置复选框选中时的样式 */
+QTreeWidget::indicator:checked {
+    border: 2px solid rgb(104, 191, 249);  /* 边框颜色 */
+    background-color: rgb(104, 191, 249);  /* 背景色 */
+    image: url(:/icons/treewidgetitem/data/icons/treewidgetitemicon/checked.png);  /* 选中状态的图片 */
+}
+
+QTreeWidget::indicator:indeterminate {
+	border: 2px solid rgb(104, 191, 249);  /* 边框颜色 */
+    background-color: rgb(104, 191, 249);  /* 背景色 */
+	image: url(:/icons/treewidgetitem/data/icons/treewidgetitemicon/partially-check.png); /* 半选中的图片 */
+}</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="btn_cancel">
+        <property name="minimumSize">
+         <size>
+          <width>164</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* 设置 QPushButton 的默认样式 */
+QPushButton {
+    background-color: #4FC3F7;  /* 背景颜色：柔和的浅蓝色 */
+    color: white;  /* 文字颜色 */
+    border: 2px solid #4FC3F7;  /* 边框颜色与背景色相同 */
+    border-radius: 12px;  /* 圆角 */
+    font: 14pt &quot;Microsoft YaHei&quot;;  /* 字体样式和大小 */
+    padding: 10px 20px;  /* 内边距，保证按钮内容舒适 */
+    min-width: 120px;  /* 最小宽度 */
+    text-align: center;  /* 文字居中 */
+}
+
+/* 悬停状态样式 */
+QPushButton:hover {
+    background-color: #39A2D1;  /* 悬停时的背景颜色（稍微深一些的浅蓝色） */
+    border-color: #39A2D1;  /* 边框颜色变化 */
+}
+
+/* 点击状态样式 */
+QPushButton:pressed {
+    background-color: #2D88B2;  /* 点击时的背景颜色（更深的蓝色） */
+    border-color: #2D88B2;  /* 边框颜色变化 */
+    padding-top: 12px;  /* 按下时按钮向下移动效果 */
+    padding-bottom: 8px;  /* 按下时按钮向下移动效果 */
+}
+
+/* 禁用状态样式 */
+QPushButton:disabled {
+    background-color: #B0C9D9;  /* 禁用状态背景色（浅灰蓝色） */
+    border-color: #B0C9D9;  /* 禁用状态边框颜色 */
+    color: #7D7D7D;  /* 禁用状态文字颜色 */
+}
+
+/* 设置按钮的焦点（获得焦点时）样式 */
+QPushButton:focus {
+    border: 2px solid #0288D1;  /* 获得焦点时的边框颜色 */
+    outline: none;  /* 去除默认的蓝色外边框 */
+}
+</string>
+        </property>
+        <property name="text">
+         <string>取消</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_acceptFinish">
+        <property name="minimumSize">
+         <size>
+          <width>164</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* 设置 QPushButton 的默认样式 */
+QPushButton {
+    background-color: #4FC3F7;  /* 背景颜色：柔和的浅蓝色 */
+    color: white;  /* 文字颜色 */
+    border: 2px solid #4FC3F7;  /* 边框颜色与背景色相同 */
+    border-radius: 12px;  /* 圆角 */
+    font: 14pt &quot;Microsoft YaHei&quot;;  /* 字体样式和大小 */
+    padding: 10px 20px;  /* 内边距，保证按钮内容舒适 */
+    min-width: 120px;  /* 最小宽度 */
+    text-align: center;  /* 文字居中 */
+}
+
+/* 悬停状态样式 */
+QPushButton:hover {
+    background-color: #39A2D1;  /* 悬停时的背景颜色（稍微深一些的浅蓝色） */
+    border-color: #39A2D1;  /* 边框颜色变化 */
+}
+
+/* 点击状态样式 */
+QPushButton:pressed {
+    background-color: #2D88B2;  /* 点击时的背景颜色（更深的蓝色） */
+    border-color: #2D88B2;  /* 边框颜色变化 */
+    padding-top: 12px;  /* 按下时按钮向下移动效果 */
+    padding-bottom: 8px;  /* 按下时按钮向下移动效果 */
+}
+
+/* 禁用状态样式 */
+QPushButton:disabled {
+    background-color: #B0C9D9;  /* 禁用状态背景色（浅灰蓝色） */
+    border-color: #B0C9D9;  /* 禁用状态边框颜色 */
+    color: #7D7D7D;  /* 禁用状态文字颜色 */
+}
+
+/* 设置按钮的焦点（获得焦点时）样式 */
+QPushButton:focus {
+    border: 2px solid #0288D1;  /* 获得焦点时的边框颜色 */
+    outline: none;  /* 去除默认的蓝色外边框 */
+}
+</string>
+        </property>
+        <property name="text">
+         <string>确认</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>644</width>
+     <height>18</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CCToDoTreeWidget</class>
+   <extends>QTreeWidget</extends>
+   <header>CCToDoTreeWidget.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,1101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CCToDoMainWindow</class>
+ <widget class="QMainWindow" name="CCToDoMainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1021</width>
+    <height>750</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>CCToDoMainWindow</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../../icons.qrc">
+    <normaloff>:/icons/windowIcon/data/icons/window_icon/todo.png</normaloff>:/icons/windowIcon/data/icons/window_icon/todo.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+    background-color: #f5f7fa;  /* 背景色 */
+    border: none;                /* 去掉边框 */
+    border-radius: 10px;         /* 圆角效果 */
+    padding: 5px;                /* 内边距 */
+}
+
+QMainWindow::separator {
+    background-color: #d0d5e1;   /* 分隔线的颜色 */
+    width: 2px;                   /* 分隔线的宽度 */
+    margin: 4px 0;                /* 分隔线的外边距 */
+}
+
+QMainWindow::menu-bar {
+    background-color: #3a4b7f;   /* 菜单栏背景色 */
+    color: #ffffff;               /* 菜单栏字体颜色 */
+    font-size: 14px;              /* 字体大小 */
+    padding: 5px 10px;            /* 内边距 */
+    border-bottom: 2px solid #2a3c6c; /* 底部边框 */
+}
+
+QMainWindow::menu-bar::item {
+    background-color: transparent;
+    padding: 8px 15px;
+    border-radius: 6px;
+}
+
+QMainWindow::menu-bar::item:selected {
+    background-color: #5b9bd5;   /* 选中的菜单项背景色 */
+    color: #ffffff;               /* 选中时的字体颜色 */
+}
+
+QMainWindow::menu-bar::item:pressed {
+    background-color: #2a3c6c;    /* 按下时的菜单项背景色 */
+    color: #ffffff;               /* 按下时的字体颜色 */
+}
+
+QMainWindow::toolBar {
+    background-color: #ffffff;    /* 工具栏背景色 */
+    border: none;                 /* 去掉工具栏边框 */
+    border-radius: 6px;           /* 工具栏圆角 */
+    padding: 5px 10px;            /* 内边距 */
+}
+
+QMainWindow::toolBar:focus {
+    border: 2px solid #66afe9;    /* 工具栏获得焦点时的边框 */
+}
+
+QMainWindow::statusBar {
+    background-color: #2a3c6c;   /* 状态栏背景色 */
+    color: #ffffff;               /* 状态栏字体颜色 */
+    border-top: 2px solid #1a2e4b; /* 状态栏上边框 */
+    padding: 5px 10px;            /* 状态栏内边距 */
+}
+
+/* 在这里单独为 QMainWindow 下的 QLabel 定义样式 */
+QMainWindow QLabel {
+    color: #333;                    /* 默认字体颜色 */
+    font-size: 12px;                /* 字体大小 */
+}
+
+QMainWindow::centralWidget {
+    background-color: #ffffff;    /* 中央窗口背景色 */
+    border-radius: 10px;          /* 圆角 */
+    padding: 20px;                /* 内边距 */
+}
+
+QMainWindow::title {
+    background-color: #3a4b7f;   /* 标题栏背景色 */
+    color: #ffffff;               /* 标题栏字体颜色 */
+    font-size: 16px;              /* 标题栏字体大小 */
+    padding: 10px 15px;           /* 标题栏内边距 */
+    border-radius: 10px 10px 0 0; /* 标题栏圆角 */
+    text-align: center;           /* 标题居中 */
+}
+
+QMainWindow::close-button {
+    background-color: transparent;
+    border: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-image: url(:/icons/close.svg); /* 自定义关闭按钮图标 */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+QMainWindow::close-button:hover {
+    background-color: #e74c3c;     /* 鼠标悬停时的背景色 */
+}
+
+QMainWindow::close-button:pressed {
+    background-color: #c0392b;     /* 按下时的背景色 */
+}
+
+QMainWindow::minimize-button {
+    background-color: transparent;
+    border: none;
+    width: 18px;
+    height: 18px;
+    background-image: url(:/icons/minimize.svg); /* 自定义最小化按钮图标 */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+QMainWindow::minimize-button:hover {
+    background-color: #f39c12;     /* 鼠标悬停时的背景色 */
+}
+
+QMainWindow::minimize-button:pressed {
+    background-color: #e67e22;     /* 按下时的背景色 */
+}
+
+QMainWindow::maximize-button {
+    background-color: transparent;
+    border: none;
+    width: 18px;
+    height: 18px;
+    background-image: url(:/icons/maximize.svg); /* 自定义最大化按钮图标 */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+QMainWindow::maximize-button:hover {
+    background-color: #2ecc71;     /* 鼠标悬停时的背景色 */
+}
+
+QMainWindow::maximize-button:pressed {
+    background-color: #27ae60;     /* 按下时的背景色 */
+}
+
+QMainWindow::top-left-corner, QMainWindow::top-right-corner, 
+QMainWindow::bottom-left-corner, QMainWindow::bottom-right-corner {
+    border: none;                   /* 去掉四个角的边框 */
+}
+
+QMainWindow::resizeHandle {
+    background-color: #bdc3c7;      /* 窗口缩放区域的背景色 */
+    width: 12px;                    /* 调整缩放区域大小 */
+    height: 12px;
+    border-radius: 3px;
+}
+
+/* 全局 QLabel 样式（不再覆盖 QMainWindow 下的 QLabel） */
+QLabel {
+    color: #333;                    /* 默认字体颜色 */
+}
+
+QLabel:disabled {
+    color: #888;                    /* 禁用状态下的字体颜色 */
+}
+</string>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>12</width>
+    <height>12</height>
+   </size>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <widget class="QWidget" name="widget_2" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QSplitter" name="splitter">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <widget class="QWidget" name="widget_tab" native="true">
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <widget class="QTabWidget" name="tabTools">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">/*设置控件的背景*/
+QTabWidget
+{
+    background-color:rgb(104,191,249);
+}
+/*设置控件下面板的背景颜色*/
+QTabWidget::pane
+{
+    background-color: rgb(228, 233, 242);
+    border:none;
+ 
+}
+/*设置控件下选择页的颜色*/
+QTabBar::tab
+{
+     font: 10pt &quot;Microsoft YaHei&quot;;
+      background-color: rgb(228, 233, 242);
+     min-width: 60px;
+     min-height: 20px;
+     padding: 2px;
+}
+/*设置控件下选择页被选中的颜色*/
+QTabBar::tab:selected
+{
+	background-color:rgb(104,191,249);
+}</string>
+             </property>
+             <property name="currentIndex">
+              <number>0</number>
+             </property>
+             <widget class="QWidget" name="tab_2">
+              <attribute name="title">
+               <string>查看今天的任务状态</string>
+              </attribute>
+              <layout class="QGridLayout" name="gridLayout_3">
+               <item row="0" column="0">
+                <widget class="QWidget" name="widget" native="true">
+                 <layout class="QGridLayout" name="gridLayout_7">
+                  <item row="0" column="0">
+                   <widget class="DisplayStatus" name="status_widget" native="true"/>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="tab_3">
+              <attribute name="title">
+               <string>日历</string>
+              </attribute>
+              <layout class="QGridLayout" name="gridLayout_2">
+               <item row="0" column="0">
+                <widget class="QCalendarWidget" name="calendarWidget">
+                 <property name="styleSheet">
+                  <string notr="true">QCalendarWidget {
+    background-color: #f9f9f9;
+    border: 2px solid #d1d1d1;
+    border-radius: 12px;
+    padding: 10px;
+    font-family: &quot;Segoe UI&quot;, Tahoma, Geneva, Verdana, sans-serif;
+}
+
+QCalendarWidget QAbstractItemView {
+    border: none;
+    background-color: #f9f9f9;
+}
+
+QCalendarWidget QTableView {
+    border: none;
+    outline: none;
+}
+
+QCalendarWidget QTableView QTableWidgetItem {
+    border: 1px solid #d1d1d1;
+    padding: 8px;
+    text-align: center;
+    font-size: 18px;
+}
+
+QCalendarWidget QTableView QTableWidgetItem:selected {
+    background-color: #8bc34a;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+QCalendarWidget QTableView QTableWidgetItem:hover {
+    background-color: #f1f1f1;
+    border: 1px solid #999;
+}
+
+QCalendarWidget QTableView QTableWidgetItem:disabled {
+    background-color: #e0e0e0;
+    color: #b0b0b0;
+    border-color: #c0c0c0;
+}
+
+QCalendarWidget QTableView QTableWidgetItem[role=&quot;weekday&quot;] {
+    background-color: #e0f7fa;
+    color: #0277bd;
+    font-weight: bold;
+    padding: 6px;
+    font-size: 16px;
+    border-bottom: 2px solid #00acc1;
+}
+
+QCalendarWidget QTableView QTableWidgetItem[role=&quot;sunday&quot;] {
+    background-color: #ffebee;
+    color: #d32f2f;
+    font-weight: bold;
+    padding: 6px;
+}
+
+QCalendarWidget QTableView QTableWidgetItem[role=&quot;holiday&quot;] {
+    background-color: #ffeb3b;
+    color: #f57c00;
+    font-weight: bold;
+    padding: 6px;
+}
+
+QCalendarWidget QTableView QTableWidgetItem[role=&quot;today&quot;] {
+    background-color: #ff5722;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 8px;
+}
+
+QCalendarWidget QTableView QTableWidgetItem[role=&quot;otherMonth&quot;] {
+    color: #9e9e9e;
+    background-color: #f0f0f0;
+    padding: 8px;
+}
+
+QCalendarWidget QTableView QTableWidgetItem[role=&quot;currentMonth&quot;] {
+    color: #333333;
+    background-color: transparent;
+}
+
+QCalendarWidget QTableView QTableWidgetItem[role=&quot;lastMonth&quot;] {
+    background-color: #f9f9f9;
+    color: #b0b0b0;
+    padding: 8px;
+}
+
+QCalendarWidget QTableView QTableWidgetItem[role=&quot;nextMonth&quot;] {
+    background-color: #f9f9f9;
+    color: #b0b0b0;
+    padding: 8px;
+}
+
+QCalendarWidget QHeaderView::section {
+    background-color: #0288d1;
+    color: white;
+    font-weight: bold;
+    padding: 18px;
+    text-align: center;
+    height: 20px;  /* 增大字体大小 */
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom: 2px solid #01579b;
+}
+
+QCalendarWidget QHeaderView::section:first-child {
+    border-top-left-radius: 12px;
+}
+
+QCalendarWidget QHeaderView::section:last-child {
+    border-top-right-radius: 12px;
+}
+
+QCalendarWidget QTableView QTableWidgetItem[role=&quot;weekday&quot;]:hover {
+    background-color: #b2ebf2;
+    color: #01579b;
+}
+
+QCalendarWidget QTableView QTableWidgetItem[role=&quot;sunday&quot;]:hover {
+    background-color: #ffcdd2;
+    color: #d32f2f;
+}
+
+QCalendarWidget QTableView QTableWidgetItem[role=&quot;holiday&quot;]:hover {
+    background-color: #fff9c4;
+    color: #f57c00;
+}
+
+QCalendarWidget QTableView QTableWidgetItem[role=&quot;today&quot;]:hover {
+    background-color: #ff7043;
+}
+
+QCalendarWidget QCalendarNavigationBar {
+    background-color: #0288d1;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+}
+
+QCalendarWidget QCalendarNavigationBar QPushButton {
+    background-color: #0277bd;
+    color: white;
+    border: none;
+    padding: 6px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 36px;
+    height: 36px;
+}
+
+QCalendarWidget QCalendarNavigationBar QPushButton:hover {
+    background-color: #01579b;
+}
+
+QCalendarWidget QCalendarNavigationBar QPushButton:pressed {
+    background-color: #01579b;
+}
+
+QCalendarWidget QToolButton#qt_calendar_prevmonth {
+    qproperty-icon: url(&quot;:/icons/data/icons/left_arrow.png&quot;);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+QCalendarWidget QToolButton#qt_calendar_nextmonth {
+    qproperty-icon: url(&quot;:/icons/data/icons/right_arrow.png&quot;);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+QCalendarWidget QTableView QTableWidgetItem[role=&quot;event&quot;] {
+    background-color: #ffeb3b;
+    color: #f57c00;
+    border-radius: 50%;
+    padding: 6px;
+    font-weight: bold;
+}
+</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="widget_groupTab" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>60</height>
+           </size>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <widget class="QTabWidget" name="tabWidget">
+             <property name="styleSheet">
+              <string notr="true">/* 设置 QTabWidget 整体背景 */
+QTabWidget {
+    background-color: rgb(104, 191, 249);  /* 更柔和的蓝色 */
+}
+
+/* 设置 QTabWidget 下的面板背景颜色 */
+QTabWidget::pane {
+    background-color: rgb(228, 233, 242);  /* 浅灰色背景 */
+    border: 2px solid rgb(180, 220, 250); /* 边框颜色与标签栏背景相同 */
+    padding: 5px; /* 面板的内边距 */
+}
+
+/* 设置 QTabBar 标签的样式 */
+QTabBar::tab {
+    font: 15pt &quot;Chinese fine black&quot;;  /* 设置字体 */
+    background-color: rgb(104, 191, 249);  /* 标签的背景颜色 */
+    color: white;  /* 标签的文字颜色 */
+    min-width: 60px;  /* 标签最小宽度 */
+    min-height: 30px;  /* 标签最小高度 */
+    padding: 5px 15px;  /* 给标签留足内边距 */
+    margin: 0;  /* 去除标签间的空隙 */
+    border-radius: 5px;  /* 给标签添加圆角 */
+}
+
+/* 设置标签被选中时的样式 */
+QTabBar::tab:selected {
+	background-color: rgb(104, 191, 249);  /*被选中时的背景色 */
+   	color: white;  /* 未选中时的文字颜色 */
+    font-weight: bold;  /* 加粗选中的标签文字 */
+    border-radius: 5px;  /* 保持圆角 */
+}
+
+/* 设置标签悬停时的样式 */
+QTabBar::tab:hover {
+    background-color: rgb(180, 200, 230);  /* 悬停时的背景色 */
+    color: #333;  /* 悬停时文字颜色 */
+}
+
+/* 设置标签未选中的样式 */
+QTabBar::tab:!selected {
+    background-color: rgb(228, 233, 242);  /* 未选中时的浅灰色背景 */
+ 	color: black;  /* 被选中时文字的颜色 */
+    border: none;  /* 去除边框 */
+    border-radius: 5px;  /* 保持圆角 */
+}
+
+/* 设置关闭按钮的样式 */
+QTabBar::close-button {
+    image: url(:/icons/tabwidget/data/icons/tabwidgets/close.png); /* 设置关闭按钮的图标 */
+}
+
+/* 设置关闭按钮悬停时的效果 */
+QTabBar::close-button:hover {
+    background-color: rgba(255, 0, 0, 50); /* 悬停时背景色 */
+    border-radius: 8px; /* 悬停时圆角 */
+}
+
+/* 设置关闭按钮按下时的效果 */
+QTabBar::close-button:pressed {
+    background-color: rgba(255, 0, 0, 100); /* 按下时背景色 */
+    border-radius: 8px; /* 按下时圆角 */
+}
+
+/* 设置关闭按钮禁用时的样式 */
+QTabBar::close-button:disabled {
+    background-color: transparent;
+    border: none;
+}
+
+/* 设置关闭按钮的可视区域 */
+QTabBar::tab {
+    padding-right: 25px; /* 给关闭按钮预留空间 */
+}
+</string>
+             </property>
+             <property name="currentIndex">
+              <number>1</number>
+             </property>
+             <property name="documentMode">
+              <bool>false</bool>
+             </property>
+             <property name="tabsClosable">
+              <bool>false</bool>
+             </property>
+             <property name="movable">
+              <bool>true</bool>
+             </property>
+             <widget class="QWidget" name="tab">
+              <attribute name="title">
+               <string>今日截至DDL</string>
+              </attribute>
+              <layout class="QGridLayout" name="gridLayout_4">
+               <item row="0" column="0">
+                <widget class="QTreeWidget" name="treeWidget_group_today">
+                 <property name="styleSheet">
+                  <string notr="true">/* 设置 QTreeWidget 整体背景颜色（反转颜色） */
+QTreeWidget {
+    background-color: rgb(228, 233, 242);  /* 设置柔和的浅蓝色背景 */
+    border: 1px solid rgb(200, 200, 200);  /* 设置边框 */
+    font: 12pt &quot;Microsoft YaHei&quot;;  /* 设置字体大小偏大，使用微软雅黑 */
+}
+
+/* 设置 QTreeWidget 项目（Item）的背景颜色（反转颜色） */
+QTreeWidget::item {
+    padding: 5px;  /* 设置项的内边距 */
+    color: rgb(50, 50, 50);  /* 设置项的文字颜色 */
+    height: 30px;  /* 设置行高为 30px */
+    background-color: rgb(104, 191, 249);  /* 设置每个项的背景色为蓝色 */
+}
+
+/* 设置选中项的样式（反转选中背景色） */
+QTreeWidget::item:!selected {
+    background-color: rgb(228, 233, 242);  /* 设置选中项的背景色为浅蓝色 */
+    color: black;  /* 设置选中项的文字颜色为白色 */
+}
+
+/* 设置复选框（indicator）的样式 */
+QTreeWidget::indicator {
+    width: 18px;
+    height: 18px;
+}
+
+/* 设置复选框未选中时的样式 */
+QTreeWidget::indicator:unchecked {
+    border: 2px solid rgb(150, 150, 150);  /* 边框颜色 */
+    background-color: rgb(255, 255, 255);  /* 背景色 */
+
+}
+
+/* 设置复选框选中时的样式 */
+QTreeWidget::indicator:checked {
+    border: 2px solid rgb(104, 191, 249);  /* 边框颜色 */
+    background-color: rgb(104, 191, 249);  /* 背景色 */
+    image: url(:/icons/treewidgetitem/data/icons/treewidgetitemicon/checked.png);  /* 选中状态的图片 */
+}
+
+QTreeWidget::indicator:indeterminate {
+	border: 2px solid rgb(104, 191, 249);  /* 边框颜色 */
+    background-color: rgb(104, 191, 249);  /* 背景色 */
+	image: url(:/icons/treewidgetitem/data/icons/treewidgetitemicon/partially-check.png); /* 半选中的图片 */
+}</string>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                 <column>
+                  <property name="text">
+                   <string notr="true">1</string>
+                  </property>
+                 </column>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="tab_4">
+              <attribute name="title">
+               <string>近七天...</string>
+              </attribute>
+              <layout class="QGridLayout" name="gridLayout_5">
+               <item row="0" column="0">
+                <widget class="QTreeWidget" name="treeWidget_group_recentWeek">
+                 <property name="styleSheet">
+                  <string notr="true">/* 设置 QTreeWidget 整体背景颜色（反转颜色） */
+QTreeWidget {
+    background-color: rgb(228, 233, 242);  /* 设置柔和的浅蓝色背景 */
+    border: 1px solid rgb(200, 200, 200);  /* 设置边框 */
+    font: 12pt &quot;Microsoft YaHei&quot;;  /* 设置字体大小偏大，使用微软雅黑 */
+}
+
+/* 设置 QTreeWidget 项目（Item）的背景颜色（反转颜色） */
+QTreeWidget::item {
+    padding: 5px;  /* 设置项的内边距 */
+    color: rgb(50, 50, 50);  /* 设置项的文字颜色 */
+    height: 30px;  /* 设置行高为 30px */
+    background-color: rgb(104, 191, 249);  /* 设置每个项的背景色为蓝色 */
+}
+
+/* 设置选中项的样式（反转选中背景色） */
+QTreeWidget::item:!selected {
+    background-color: rgb(228, 233, 242);  /* 设置选中项的背景色为浅蓝色 */
+    color: black;  /* 设置选中项的文字颜色为白色 */
+}
+
+/* 设置复选框（indicator）的样式 */
+QTreeWidget::indicator {
+    width: 18px;
+    height: 18px;
+}
+
+/* 设置复选框未选中时的样式 */
+QTreeWidget::indicator:unchecked {
+    border: 2px solid rgb(150, 150, 150);  /* 边框颜色 */
+    background-color: rgb(255, 255, 255);  /* 背景色 */
+
+}
+
+/* 设置复选框选中时的样式 */
+QTreeWidget::indicator:checked {
+    border: 2px solid rgb(104, 191, 249);  /* 边框颜色 */
+    background-color: rgb(104, 191, 249);  /* 背景色 */
+    image: url(:/icons/treewidgetitem/data/icons/treewidgetitemicon/checked.png);  /* 选中状态的图片 */
+}
+
+QTreeWidget::indicator:indeterminate {
+	border: 2px solid rgb(104, 191, 249);  /* 边框颜色 */
+    background-color: rgb(104, 191, 249);  /* 背景色 */
+	image: url(:/icons/treewidgetitem/data/icons/treewidgetitemicon/partially-check.png); /* 半选中的图片 */
+}</string>
+                 </property>
+                 <column>
+                  <property name="text">
+                   <string notr="true">1</string>
+                  </property>
+                 </column>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="tab_5">
+              <attribute name="title">
+               <string>高优先级</string>
+              </attribute>
+              <layout class="QGridLayout" name="gridLayout_6">
+               <item row="0" column="0">
+                <widget class="QTreeWidget" name="treeWidget_highPriority">
+                 <property name="styleSheet">
+                  <string notr="true">/* 设置 QTreeWidget 整体背景颜色（反转颜色） */
+QTreeWidget {
+    background-color: rgb(228, 233, 242);  /* 设置柔和的浅蓝色背景 */
+    border: 1px solid rgb(200, 200, 200);  /* 设置边框 */
+    font: 12pt &quot;Microsoft YaHei&quot;;  /* 设置字体大小偏大，使用微软雅黑 */
+}
+
+/* 设置 QTreeWidget 项目（Item）的背景颜色（反转颜色） */
+QTreeWidget::item {
+    padding: 5px;  /* 设置项的内边距 */
+    color: rgb(50, 50, 50);  /* 设置项的文字颜色 */
+    height: 30px;  /* 设置行高为 30px */
+    background-color: rgb(104, 191, 249);  /* 设置每个项的背景色为蓝色 */
+}
+
+/* 设置选中项的样式（反转选中背景色） */
+QTreeWidget::item:!selected {
+    background-color: rgb(228, 233, 242);  /* 设置选中项的背景色为浅蓝色 */
+    color: black;  /* 设置选中项的文字颜色为白色 */
+}
+
+/* 设置复选框（indicator）的样式 */
+QTreeWidget::indicator {
+    width: 18px;
+    height: 18px;
+}
+
+/* 设置复选框未选中时的样式 */
+QTreeWidget::indicator:unchecked {
+    border: 2px solid rgb(150, 150, 150);  /* 边框颜色 */
+    background-color: rgb(255, 255, 255);  /* 背景色 */
+
+}
+
+/* 设置复选框选中时的样式 */
+QTreeWidget::indicator:checked {
+    border: 2px solid rgb(104, 191, 249);  /* 边框颜色 */
+    background-color: rgb(104, 191, 249);  /* 背景色 */
+    image: url(:/icons/treewidgetitem/data/icons/treewidgetitemicon/checked.png);  /* 选中状态的图片 */
+}
+
+QTreeWidget::indicator:indeterminate {
+	border: 2px solid rgb(104, 191, 249);  /* 边框颜色 */
+    background-color: rgb(104, 191, 249);  /* 背景色 */
+	image: url(:/icons/treewidgetitem/data/icons/treewidgetitemicon/partially-check.png); /* 半选中的图片 */
+}</string>
+                 </property>
+                 <column>
+                  <property name="text">
+                   <string notr="true">1</string>
+                  </property>
+                 </column>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1021</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>文件</string>
+    </property>
+    <widget class="QMenu" name="menu_new">
+     <property name="title">
+      <string>新建</string>
+     </property>
+     <addaction name="action_importMarkDown"/>
+     <addaction name="action_addFromWindow"/>
+    </widget>
+    <widget class="QMenu" name="menu_save_as_markdown">
+     <property name="title">
+      <string>保存Markdown</string>
+     </property>
+     <addaction name="action_save_on_date_display"/>
+     <addaction name="action_save_ddl"/>
+     <addaction name="action_save_recent"/>
+     <addaction name="action_save_high_priority"/>
+    </widget>
+    <addaction name="menu_new"/>
+    <addaction name="menu_save_as_markdown"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>插入</string>
+    </property>
+    <addaction name="action_on_insert_at_current_date"/>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>查看</string>
+    </property>
+    <addaction name="action_look_previous"/>
+    <addaction name="action_locate_today"/>
+    <addaction name="action_look_next"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+   <addaction name="menu_3"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QDockWidget" name="dock_view_todo">
+   <property name="floating">
+    <bool>false</bool>
+   </property>
+   <property name="features">
+    <set>QDockWidget::DockWidgetFeature::DockWidgetFloatable|QDockWidget::DockWidgetFeature::DockWidgetMovable</set>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::DockWidgetArea::LeftDockWidgetArea|Qt::DockWidgetArea::RightDockWidgetArea</set>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,5,2">
+       <item>
+        <widget class="QPushButton" name="btn_to_previousDay">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../../icons.qrc">
+           <normaloff>:/icons/data/icons/left_arrow.png</normaloff>:/icons/data/icons/left_arrow.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>35</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>35</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>1970-1-1</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_to_nextDay">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../../icons.qrc">
+           <normaloff>:/icons/data/icons/right_arrow.png</normaloff>:/icons/data/icons/right_arrow.png</iconset>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="1" column="0">
+      <widget class="CCToDoTreeWidget" name="datetreeWidget_tasks">
+       <property name="styleSheet">
+        <string notr="true">/* 设置 QTreeWidget 整体背景颜色（反转颜色） */
+QTreeWidget {
+    background-color: rgb(228, 233, 242);  /* 设置柔和的浅蓝色背景 */
+    border: 1px solid rgb(200, 200, 200);  /* 设置边框 */
+    font: 12pt &quot;Microsoft YaHei&quot;;  /* 设置字体大小偏大，使用微软雅黑 */
+}
+
+/* 设置 QTreeWidget 项目（Item）的背景颜色（反转颜色） */
+QTreeWidget::item {
+    padding: 5px;  /* 设置项的内边距 */
+    color: rgb(50, 50, 50);  /* 设置项的文字颜色 */
+    height: 30px;  /* 设置行高为 30px */
+    background-color: rgb(104, 191, 249);  /* 设置每个项的背景色为蓝色 */
+}
+
+/* 设置选中项的样式（反转选中背景色） */
+QTreeWidget::item:!selected {
+    background-color: rgb(228, 233, 242);  /* 设置选中项的背景色为浅蓝色 */
+    color: black;  /* 设置选中项的文字颜色为白色 */
+}
+
+/* 设置复选框（indicator）的样式 */
+QTreeWidget::indicator {
+    width: 18px;
+    height: 18px;
+}
+
+/* 设置复选框未选中时的样式 */
+QTreeWidget::indicator:unchecked {
+    border: 2px solid rgb(150, 150, 150);  /* 边框颜色 */
+    background-color: rgb(255, 255, 255);  /* 背景色 */
+
+}
+
+/* 设置复选框选中时的样式 */
+QTreeWidget::indicator:checked {
+    border: 2px solid rgb(104, 191, 249);  /* 边框颜色 */
+    background-color: rgb(104, 191, 249);  /* 背景色 */
+    image: url(:/icons/treewidgetitem/data/icons/treewidgetitemicon/checked.png);  /* 选中状态的图片 */
+}
+
+QTreeWidget::indicator:indeterminate {
+	border: 2px solid rgb(104, 191, 249);  /* 边框颜色 */
+    background-color: rgb(104, 191, 249);  /* 背景色 */
+	image: url(:/icons/treewidgetitem/data/icons/treewidgetitemicon/partially-check.png); /* 半选中的图片 */
+}</string>
+       </property>
+       <property name="dragEnabled">
+        <bool>true</bool>
+       </property>
+       <property name="dragDropMode">
+        <enum>QAbstractItemView::DragDropMode::InternalMove</enum>
+       </property>
+       <property name="defaultDropAction">
+        <enum>Qt::DropAction::MoveAction</enum>
+       </property>
+       <property name="wordWrap">
+        <bool>false</bool>
+       </property>
+       <attribute name="headerStretchLastSection">
+        <bool>true</bool>
+       </attribute>
+       <column>
+        <property name="text">
+         <string notr="true">1</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="action_newTask"/>
+   <addaction name="action_importMarkDown"/>
+   <addaction name="action_addFromWindow"/>
+   <addaction name="separator"/>
+   <addaction name="action_on_insert_at_current_date"/>
+   <addaction name="separator"/>
+   <addaction name="action_look_previous"/>
+   <addaction name="action_locate_today"/>
+   <addaction name="action_look_next"/>
+   <addaction name="separator"/>
+   <addaction name="action_save_on_date_display"/>
+   <addaction name="action_save_ddl"/>
+   <addaction name="action_save_recent"/>
+   <addaction name="action_save_high_priority"/>
+  </widget>
+  <action name="action_newTask">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::ListAdd" resource="../../icons.qrc">
+     <normaloff>:/icons/data/icons/add.png</normaloff>:/icons/data/icons/add.png</iconset>
+   </property>
+   <property name="text">
+    <string>添加新任务</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="action_importMarkDown">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::DocumentNew" resource="../../icons.qrc">
+     <normaloff>:/icons/data/icons/document.png</normaloff>:/icons/data/icons/document.png</iconset>
+   </property>
+   <property name="text">
+    <string>导入Markdown</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="action_addFromWindow">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::WindowNew" resource="../../icons.qrc">
+     <normaloff>:/icons/data/icons/window.png</normaloff>:/icons/data/icons/window.png</iconset>
+   </property>
+   <property name="text">
+    <string>从窗口添加</string>
+   </property>
+  </action>
+  <action name="action_locate_today">
+   <property name="icon">
+    <iconset resource="../../icons.qrc">
+     <normaloff>:/icons/tool_bar/data/icons/tool_bars/today.png</normaloff>:/icons/tool_bar/data/icons/tool_bars/today.png</iconset>
+   </property>
+   <property name="text">
+    <string>定位到今天...</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="action_look_previous">
+   <property name="icon">
+    <iconset resource="../../icons.qrc">
+     <normaloff>:/icons/tool_bar/data/icons/tool_bars/previous.png</normaloff>:/icons/tool_bar/data/icons/tool_bars/previous.png</iconset>
+   </property>
+   <property name="text">
+    <string>查看上一天</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="action_look_next">
+   <property name="icon">
+    <iconset resource="../../icons.qrc">
+     <normaloff>:/icons/tool_bar/data/icons/tool_bars/next_date.png</normaloff>:/icons/tool_bar/data/icons/tool_bars/next_date.png</iconset>
+   </property>
+   <property name="text">
+    <string>查看下一天</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="action_save_on_date_display">
+   <property name="icon">
+    <iconset resource="../../icons.qrc">
+     <normaloff>:/icons/tool_bar/data/icons/tool_bars/save_as.png</normaloff>:/icons/tool_bar/data/icons/tool_bars/save_as.png</iconset>
+   </property>
+   <property name="text">
+    <string>保存当前显示的日期</string>
+   </property>
+  </action>
+  <action name="action_save_ddl">
+   <property name="icon">
+    <iconset resource="../../icons.qrc">
+     <normaloff>:/icons/tool_bar/data/icons/tool_bars/save_as.png</normaloff>:/icons/tool_bar/data/icons/tool_bars/save_as.png</iconset>
+   </property>
+   <property name="text">
+    <string>保存今天的DDL</string>
+   </property>
+  </action>
+  <action name="action_save_recent">
+   <property name="icon">
+    <iconset resource="../../icons.qrc">
+     <normaloff>:/icons/tool_bar/data/icons/tool_bars/save_as.png</normaloff>:/icons/tool_bar/data/icons/tool_bars/save_as.png</iconset>
+   </property>
+   <property name="text">
+    <string>保存近七天任务</string>
+   </property>
+  </action>
+  <action name="action_save_high_priority">
+   <property name="icon">
+    <iconset resource="../../icons.qrc">
+     <normaloff>:/icons/tool_bar/data/icons/tool_bars/save_as.png</normaloff>:/icons/tool_bar/data/icons/tool_bars/save_as.png</iconset>
+   </property>
+   <property name="text">
+    <string>保存高优先级</string>
+   </property>
+  </action>
+  <action name="action_on_insert_at_current_date">
+   <property name="icon">
+    <iconset resource="../../icons.qrc">
+     <normaloff>:/icons/tool_bar/data/icons/tool_bars/insert_to_showndate.png</normaloff>:/icons/tool_bar/data/icons/tool_bars/insert_to_showndate.png</iconset>
+   </property>
+   <property name="text">
+    <string>在当前日期插入根目录</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CCToDoTreeWidget</class>
+   <extends>QTreeWidget</extends>
+   <header>CCToDoTreeWidget.h</header>
+  </customwidget>
+  <customwidget>
+   <class>DisplayStatus</class>
+   <extends>QWidget</extends>
+   <header location="global">DisplayStatus.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../../icons.qrc"/>
+ </resources>
+ <connections/>
+</ui>

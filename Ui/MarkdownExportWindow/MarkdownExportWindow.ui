@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MarkdownExportWindow</class>
+ <widget class="QMainWindow" name="MarkdownExportWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>704</width>
+    <height>439</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MarkDown导出</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTextBrowser" name="display_result">
+      <property name="styleSheet">
+       <string notr="true">QTextBrowser {
+    /* 设置背景颜色和边框 */
+    background-color: #f0f0f0;
+    border: 2px solid #888;
+    border-radius: 5px;
+
+    /* 设置文本颜色、字体及其大小 */
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 10px;
+}
+
+QTextBrowser QScrollBar:horizontal {
+    height: 15px;
+    background-color: #e1e1e1;
+    border-radius: 8px;
+}
+
+QTextBrowser QScrollBar:vertical {
+    width: 15px;
+    background-color: #e1e1e1;
+    border-radius: 8px;
+}
+
+/* 设置鼠标悬停时的滚动条样式 */
+QTextBrowser QScrollBar:hover {
+    background-color: #c1c1c1;
+}
+
+/* 定义超链接的样式 */
+QTextBrowser a {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+QTextBrowser a:hover {
+    text-decoration: underline;
+    color: #007bff;
+}
+
+/* 设置文本中不同元素的样式 */
+QTextBrowser p {
+    margin-bottom: 10px;
+}
+
+QTextBrowser h1 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+QTextBrowser h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+QTextBrowser blockquote {
+    padding-left: 20px;
+    border-left: 4px solid #007bff;
+    margin: 10px 0;
+    font-style: italic;
+}
+
+QTextBrowser li {
+    margin-bottom: 8px;
+    padding-left: 5px;
+}
+
+QTextBrowser table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+QTextBrowser table, QTextBrowser th, QTextBrowser td {
+    border: 1px solid #ddd;
+}
+
+QTextBrowser th {
+    background-color: #f1f1f1;
+    font-weight: bold;
+}
+
+QTextBrowser td {
+    padding: 5px;
+}
+</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="label_tellshowSave">
+        <property name="text">
+         <string>设置MarkDown导出地址：</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_displayExport">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_setExportPlace">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* 设置 QPushButton 的默认样式 */
+QPushButton {
+    background-color: #4FC3F7;  /* 背景颜色：柔和的浅蓝色 */
+    color: white;  /* 文字颜色 */
+    border: 2px solid #4FC3F7;  /* 边框颜色与背景色相同 */
+    border-radius: 12px;  /* 圆角 */
+    font: 14pt &quot;Microsoft YaHei&quot;;  /* 字体样式和大小 */
+    padding: 10px 20px;  /* 内边距，保证按钮内容舒适 */
+    text-align: center;  /* 文字居中 */
+}
+
+/* 悬停状态样式 */
+QPushButton:hover {
+    background-color: #39A2D1;  /* 悬停时的背景颜色（稍微深一些的浅蓝色） */
+    border-color: #39A2D1;  /* 边框颜色变化 */
+}
+
+/* 点击状态样式 */
+QPushButton:pressed {
+    background-color: #2D88B2;  /* 点击时的背景颜色（更深的蓝色） */
+    border-color: #2D88B2;  /* 边框颜色变化 */
+    padding-top: 12px;  /* 按下时按钮向下移动效果 */
+    padding-bottom: 8px;  /* 按下时按钮向下移动效果 */
+}
+
+/* 禁用状态样式 */
+QPushButton:disabled {
+    background-color: #B0C9D9;  /* 禁用状态背景色（浅灰蓝色） */
+    border-color: #B0C9D9;  /* 禁用状态边框颜色 */
+    color: #7D7D7D;  /* 禁用状态文字颜色 */
+}
+
+/* 设置按钮的焦点（获得焦点时）样式 */
+QPushButton:focus {
+    border: 2px solid #0288D1;  /* 获得焦点时的边框颜色 */
+    outline: none;  /* 去除默认的蓝色外边框 */
+}
+</string>
+        </property>
+        <property name="text">
+         <string>选择地址 + 设置名称</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QtMaterialTextField" name="lineEdit_titleName">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>50</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_preview_export">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* 设置 QPushButton 的默认样式 */
+QPushButton {
+    background-color: #4FC3F7;  /* 背景颜色：柔和的浅蓝色 */
+    color: white;  /* 文字颜色 */
+    border: 2px solid #4FC3F7;  /* 边框颜色与背景色相同 */
+    border-radius: 12px;  /* 圆角 */
+    font: 14pt &quot;Microsoft YaHei&quot;;  /* 字体样式和大小 */
+    padding: 10px 20px;  /* 内边距，保证按钮内容舒适 */
+    text-align: center;  /* 文字居中 */
+}
+
+/* 悬停状态样式 */
+QPushButton:hover {
+    background-color: #39A2D1;  /* 悬停时的背景颜色（稍微深一些的浅蓝色） */
+    border-color: #39A2D1;  /* 边框颜色变化 */
+}
+
+/* 点击状态样式 */
+QPushButton:pressed {
+    background-color: #2D88B2;  /* 点击时的背景颜色（更深的蓝色） */
+    border-color: #2D88B2;  /* 边框颜色变化 */
+    padding-top: 12px;  /* 按下时按钮向下移动效果 */
+    padding-bottom: 8px;  /* 按下时按钮向下移动效果 */
+}
+
+/* 禁用状态样式 */
+QPushButton:disabled {
+    background-color: #B0C9D9;  /* 禁用状态背景色（浅灰蓝色） */
+    border-color: #B0C9D9;  /* 禁用状态边框颜色 */
+    color: #7D7D7D;  /* 禁用状态文字颜色 */
+}
+
+/* 设置按钮的焦点（获得焦点时）样式 */
+QPushButton:focus {
+    border: 2px solid #0288D1;  /* 获得焦点时的边框颜色 */
+    outline: none;  /* 去除默认的蓝色外边框 */
+}
+</string>
+        </property>
+        <property name="text">
+         <string>预览导出</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QPushButton" name="btn_cancel_export">
+        <property name="minimumSize">
+         <size>
+          <width>164</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* 设置 QPushButton 的默认样式 */
+QPushButton {
+    background-color: #4FC3F7;  /* 背景颜色：柔和的浅蓝色 */
+    color: white;  /* 文字颜色 */
+    border: 2px solid #4FC3F7;  /* 边框颜色与背景色相同 */
+    border-radius: 12px;  /* 圆角 */
+    font: 14pt &quot;Microsoft YaHei&quot;;  /* 字体样式和大小 */
+    padding: 10px 20px;  /* 内边距，保证按钮内容舒适 */
+    min-width: 120px;  /* 最小宽度 */
+    text-align: center;  /* 文字居中 */
+}
+
+/* 悬停状态样式 */
+QPushButton:hover {
+    background-color: #39A2D1;  /* 悬停时的背景颜色（稍微深一些的浅蓝色） */
+    border-color: #39A2D1;  /* 边框颜色变化 */
+}
+
+/* 点击状态样式 */
+QPushButton:pressed {
+    background-color: #2D88B2;  /* 点击时的背景颜色（更深的蓝色） */
+    border-color: #2D88B2;  /* 边框颜色变化 */
+    padding-top: 12px;  /* 按下时按钮向下移动效果 */
+    padding-bottom: 8px;  /* 按下时按钮向下移动效果 */
+}
+
+/* 禁用状态样式 */
+QPushButton:disabled {
+    background-color: #B0C9D9;  /* 禁用状态背景色（浅灰蓝色） */
+    border-color: #B0C9D9;  /* 禁用状态边框颜色 */
+    color: #7D7D7D;  /* 禁用状态文字颜色 */
+}
+
+/* 设置按钮的焦点（获得焦点时）样式 */
+QPushButton:focus {
+    border: 2px solid #0288D1;  /* 获得焦点时的边框颜色 */
+    outline: none;  /* 去除默认的蓝色外边框 */
+}
+</string>
+        </property>
+        <property name="text">
+         <string>取消</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_accept_export">
+        <property name="minimumSize">
+         <size>
+          <width>164</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* 设置 QPushButton 的默认样式 */
+QPushButton {
+    background-color: #4FC3F7;  /* 背景颜色：柔和的浅蓝色 */
+    color: white;  /* 文字颜色 */
+    border: 2px solid #4FC3F7;  /* 边框颜色与背景色相同 */
+    border-radius: 12px;  /* 圆角 */
+    font: 14pt &quot;Microsoft YaHei&quot;;  /* 字体样式和大小 */
+    padding: 10px 20px;  /* 内边距，保证按钮内容舒适 */
+    min-width: 120px;  /* 最小宽度 */
+    text-align: center;  /* 文字居中 */
+}
+
+/* 悬停状态样式 */
+QPushButton:hover {
+    background-color: #39A2D1;  /* 悬停时的背景颜色（稍微深一些的浅蓝色） */
+    border-color: #39A2D1;  /* 边框颜色变化 */
+}
+
+/* 点击状态样式 */
+QPushButton:pressed {
+    background-color: #2D88B2;  /* 点击时的背景颜色（更深的蓝色） */
+    border-color: #2D88B2;  /* 边框颜色变化 */
+    padding-top: 12px;  /* 按下时按钮向下移动效果 */
+    padding-bottom: 8px;  /* 按下时按钮向下移动效果 */
+}
+
+/* 禁用状态样式 */
+QPushButton:disabled {
+    background-color: #B0C9D9;  /* 禁用状态背景色（浅灰蓝色） */
+    border-color: #B0C9D9;  /* 禁用状态边框颜色 */
+    color: #7D7D7D;  /* 禁用状态文字颜色 */
+}
+
+/* 设置按钮的焦点（获得焦点时）样式 */
+QPushButton:focus {
+    border: 2px solid #0288D1;  /* 获得焦点时的边框颜色 */
+    outline: none;  /* 去除默认的蓝色外边框 */
+}
+</string>
+        </property>
+        <property name="text">
+         <string>导出</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>704</width>
+     <height>18</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QtMaterialTextField</class>
+   <extends>QLineEdit</extends>
+   <header location="global">qtmaterialtextfield.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
