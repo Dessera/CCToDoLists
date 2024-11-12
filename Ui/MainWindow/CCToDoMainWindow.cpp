@@ -175,6 +175,7 @@ void CCToDoMainWindow::handle_tell_display(Task* task, QTreeWidgetItem* item) {
 bool CCToDoMainWindow::open_dataBase() {
     return dataBase.getInstance()->open_database(
         "data/dataBase/TodoDataBase.db");
+    // return dataBase.getInstance()->open_database(":memory:")
 }
 
 void CCToDoMainWindow::handle_error_in_open_database() {
